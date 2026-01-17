@@ -41,13 +41,13 @@ My personal dotfiles for Linux (Arch/CachyOS). This repository includes an insta
 
 ## Post-Installation
 
-Setelah instalasi selesai dan Anda masuk ke lingkungan desktop Hyprland, Anda perlu mengatur tema GTK dan Cursor secara manual menggunakan `nwg-look`:
+After the installation is complete and you have logged into the Hyprland desktop environment, you need to manually set the GTK and Cursor themes using `nwg-look`:
 
-1.  Buka terminal (`SUPER + RETURN`) atau launcher (`SUPER + SPACE`).
-2.  Jalankan perintah: `nwg-look`.
-3.  Di tab **GTK Theme**, pilih **Catppuccin-Mocha**.
-4.  Di tab **Cursor Theme**, pilih **Bibata-Modern-Classic** (atau varian Bibata lainnya).
-5.  Klik **Apply** untuk menerapkan perubahan.
+1.  Open the terminal (`SUPER + RETURN`) or launcher (`SUPER + SPACE`).
+2.  Run the command: `nwg-look`.
+3.  In the **GTK Theme** tab, select **Catppuccin-Mocha**.
+4.  In the **Cursor Theme** tab, select **Bibata-Modern-Classic** (or any other Bibata variant).
+5.  Click **Apply** to save the changes.
 
 ## Structure
 
