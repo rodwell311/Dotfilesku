@@ -49,6 +49,14 @@ After the installation is complete and you have logged into the Hyprland desktop
 4.  In the **Cursor Theme** tab, select **Bibata-Modern-Classic** (or any other Bibata variant).
 5.  Click **Apply** to save the changes.
 
+### Changing Wallpaper
+
+To change the wallpaper using `waypaper`:
+
+1.  Open the terminal (`SUPER + RETURN`) or launcher (`SUPER + SPACE`).
+2.  Run the command: `waypaper`.
+3.  Select your preferred wallpaper and click **Apply**.
+
 ## Structure
 
 - `.config/`: Contains configuration folders for various tools.

@@ -14,7 +14,7 @@ PACKAGES=(
     "sddm" "sddm-silent-theme"
     "python-pywal16" "starship" "ttf-jetbrains-mono-nerd" "ttf-font-awesome"
     "git" "base-devel" "pantheon-polkit-agent" "qt5-wayland" "qt6-wayland"
-    "xdg-desktop-portal-hyprland" "brightnessctl" "playerctl"
+    "xdg-desktop-portal-hyprland" "brightnessctl" "playerctl" "swww"
 )
 
 # Fonts to install
