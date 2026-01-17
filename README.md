@@ -57,6 +57,22 @@ To change the wallpaper using `waypaper`:
 2.  Run the command: `waypaper`.
 3.  Select your preferred wallpaper and click **Apply**.
 
+### SDDM Profile Picture
+
+To change the profile picture in SDDM:
+
+1.  Prepare an image with a **1:1** aspect ratio.
+2.  Name the image using the format `(username).face.icon` (e.g., `rodwell.face.icon`).
+3.  Save the file to the `/usr/share/sddm/faces/` directory.
+
+### Wlogout Profile Picture
+
+To change the profile picture in wlogout:
+
+1.  Prepare an image with a **1:1** aspect ratio.
+2.  Name the image `.face.icon`.
+3.  Save the file to the `~/.config/hypr/` directory.
+
 ## Structure
 
 - `.config/`: Contains configuration folders for various tools.
