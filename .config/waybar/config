@@ -1,0 +1,153 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+    "spacing": 4,
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "group/tray-expander",
+        "pulseaudio",
+        "network",
+        "group/hardware",
+        "battery",
+        "custom/notification",
+        "custom/power"
+    ],
+    "custom/launcher": {
+        "format": "  ",
+        "on-click": "tofi-drun -c ~/.config/tofi/configA --drun-launch=true",
+        "tooltip": false
+    },
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "active": "󱓻"
+        },
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+    "hyprland/window": {
+        "format": "  {}",
+        "max-length": 40,
+        "separate-outputs": true
+    },
+    "clock": {
+        "format": "{:%a %d %b  %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon}  {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "network": {
+        "format-wifi": "  {bandwidthDownBytes}",
+        "format-ethernet": " {bandwidthDownBytes}",
+        "format-linked": " {bandwidthDownBytes}",
+        "format-disconnected": "⚠",
+        "tooltip-format": "{essid} ({signalStrength}%) ⬆ {bandwidthUpBytes} ⬇ {bandwidthDownBytes}",
+        "interval": 2,
+        "on-click": "kitty --title nmtui -e nmtui"
+    },
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/system",
+            "cpu",
+            "memory",
+            "disk"
+        ],
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "hardware-drawer",
+            "transition-left-to-right": false
+        }
+    },
+    "group/tray-expander": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 600,
+            "children-class": "tray-group-item"
+        },
+        "modules": [
+            "custom/expand-icon",
+            "tray"
+        ]
+    },
+    "custom/expand-icon": {
+        "format": " ",
+        "tooltip": false
+    },
+    "custom/system": {
+        "format": "",
+        "tooltip": false
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "interval": 2
+    },
+    "memory": {
+        "format": "{percentage}% "
+    },
+    "disk": {
+        "format": "{percentage_used}% ",
+        "path": "/"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "custom/power": {
+        "format": " ",
+        "on-click": "wlogout -b 5",
+        "tooltip": false
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": " ",
+        "on-click": "swaync-client -t -sw"
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 8
+    }
+}

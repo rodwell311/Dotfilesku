@@ -1,0 +1,45 @@
+@import url('../../.cache/wal/colors-waybar.css');
+
+window {
+    font-family: 'CodeNewRoman Nerd Font Mono', monospace;
+    background-color: rgba(13, 21, 31, 0.6); /* Matches @background #0d151f with opacity */
+}
+
+button {
+    background-color: @background;
+    border: 2px solid @color9;
+    border-radius: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+button:focus, button:active, button:hover {
+    background-color: @color9;
+    border-color: @color5;
+    outline-style: none;
+    box-shadow: 0 0 10px @color9;
+}
+
+#lock {
+    background-image: image(url("../../.config/wlogout/lock.png"));
+}
+
+#logout {
+    background-image: image(url("../../.config/wlogout/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("../../.config/wlogout/sleep.png"));
+}
+
+#shutdown {
+    background-image: image(url("../../.config/wlogout/power.png"));
+}
+
+#reboot {
+    background-image: image(url("../../.config/wlogout/restart.png"));
+}

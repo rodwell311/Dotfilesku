@@ -1,0 +1,134 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrains Mono Nerd Font", "Roboto", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+window#waybar {
+    background: rgba(30, 30, 46, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#custom-launcher {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 5px; /* Mengurangi jarak */
+    color: #ffffff;
+    padding: 0 2px;
+}
+
+/* WORKSPACES STYLING - COPIED FROM BACKUP */
+#workspaces button {
+  all: initial; /* Resets all properties */
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
+  color: #a6adc8; /* Default color */
+  font-family: "JetBrains Mono Nerd Font"; /* Ensure font is consistent */
+}
+
+#workspaces button.active {
+    color: #cba6f7; /* Purple for active icon */
+}
+
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+#workspaces button:hover {
+    color: #ffffff;
+}
+/* END WORKSPACE STYLING */
+
+#window {
+    color: #cdd6f4;
+    font-weight: bold;
+}
+
+#clock {
+    color: #cdd6f4;
+    font-weight: bold;
+}
+
+/* Modules Right Container */
+#tray, #pulseaudio, #network, #battery, #custom-power, #custom-system, #custom-expand-icon {
+    background: transparent;
+    color: #cdd6f4;
+    padding: 0 8px;
+    margin: 0 1px;
+}
+
+/* Tray Expander Styling */
+#custom-expand-icon {
+    color: #f9e2af; /* Yellow accent */
+    font-size: 14px;
+    padding-right: 5px;
+}
+
+.tray-group-item {
+    background: rgba(30, 30, 46, 0.3);
+    border-radius: 15px;
+    padding-left: 10px;
+}
+/* End Tray Expander */
+
+/* Hardware Group Styling (Drawer) */
+#custom-system {
+    color: #b4befe;
+    font-size: 11px;
+}
+
+/* Isi Drawer (CPU, RAM, Disk) */
+.hardware-drawer {
+    background: rgba(30, 30, 46, 0.3);
+    border-radius: 15px;
+    margin-right: 5px;
+    padding-left: 10px;
+}
+
+#cpu, #memory, #disk {
+    color: #a6adc8;
+    padding: 0 5px;
+}
+
+#battery.charging, #battery.plugged {
+    color: #a6e3a1;
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        color: #ffffff;
+    }
+}
+
+#custom-power {
+    margin-right: 10px;
+    font-size: 13px;
+    color: #f38ba8;
+}
+
+tooltip {
+    background: rgba(30, 30, 46, 0.9);
+    border: 1px solid rgba(137, 180, 250, 0.3);
+    border-radius: 4px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}
