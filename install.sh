@@ -15,6 +15,10 @@ PACKAGES=(
     "python-pywal16" "starship" "ttf-jetbrains-mono-nerd" "ttf-font-awesome"
     "git" "base-devel" "pantheon-polkit-agent" "qt5-wayland" "qt6-wayland"
     "xdg-desktop-portal-hyprland" "brightnessctl" "playerctl" "swww"
+    "hyprlock" "waypaper" "eza" "pipewire-alsa" "pipewire-pulse" "wireplumber" "pavucontrol"
+    "bluez" "bluez-utils" "blueman" "networkmanager" "iwd"
+    "ananicy-cpp" "gamemode" "reflector" "irqbalance"
+    "hypridle" "pyprland" "wl-clipboard" "grim" "slurp" "jq"
 )
 
 # Fonts to install
