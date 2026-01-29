@@ -183,7 +183,7 @@ if ask_confirmation "Link dotfiles?"; then
     }
 
     # Link .config directories
-    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look; do
+    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look waypaper; do
         link_item ".config/$config"
     done
     link_item ".config/starship.toml"
