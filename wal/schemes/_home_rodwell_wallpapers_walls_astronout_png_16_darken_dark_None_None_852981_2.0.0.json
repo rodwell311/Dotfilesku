@@ -1,0 +1,28 @@
+{
+    "checksum": "9b9605540fe0bcee33590688e5a188cb",
+    "wallpaper": "/home/rodwell/wallpapers/walls/astronout.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0e2020",
+        "foreground": "#c2c7c7",
+        "cursor": "#c2c7c7"
+    },
+    "colors": {
+        "color0": "#0e2020",
+        "color1": "#4e4844",
+        "color2": "#8f4533",
+        "color3": "#6f4b4b",
+        "color4": "#5b655a",
+        "color5": "#96752a",
+        "color6": "#716b53",
+        "color7": "#909b9b",
+        "color8": "#5d7272",
+        "color9": "#69615B",
+        "color10": "#BF5C45",
+        "color11": "#946464",
+        "color12": "#7A8779",
+        "color13": "#C99D39",
+        "color14": "#978F6F",
+        "color15": "#c2c7c7"
+    }
+}

@@ -12,6 +12,7 @@ alias la='eza -a --color=always --group-directories-first --icons'
 alias ll='eza -l --color=always --group-directories-first --icons'
 alias lt='eza -aT --color=always --group-directories-first --icons'
 alias l.="eza -a | grep -e '^\.'"
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 alias update='sudo pacman -Syu'
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'

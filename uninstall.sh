@@ -11,7 +11,7 @@ PACKAGES=(
     "hyprland" "waybar" "kitty" "fish" "neovim" "micro" "tofi" "wlogout" "wofi" "swaync" "btop" "cava" "nautilus"
     "mpd" "ncmpcpp" "clock-rs-git" "nwg-look" "bibata-cursor-theme" "clipvault-bin" "rxfetch" "zen-browser-bin"
     "sddm" "sddm-silent-theme"
-    "python-pywal16" "starship" "ttf-jetbrains-mono-nerd" "ttf-font-awesome"
+    "python-pywal16-git" "starship" "ttf-jetbrains-mono-nerd" "ttf-font-awesome"
     "git" "base-devel" "pantheon-polkit-agent" "qt5-wayland" "qt6-wayland"
     "xdg-desktop-portal-hyprland" "brightnessctl" "playerctl" "swww"
     "hyprlock" "waypaper" "eza" "pipewire-alsa" "pipewire-pulse" "wireplumber" "pavucontrol"
@@ -103,7 +103,39 @@ if ask_confirmation "Unlink dotfiles and remove symlinks?"; then
     success "Dotfiles unlinked."
 fi
 
-# 2. Uninstall Packages
+# 2. Clean Pywal Cache
+if ask_confirmation "Remove Pywal color scheme cache?"; then
+    log "Removing Pywal color scheme cache from $HOME/.cache/wal..."
+    rm -rf "$HOME/.cache/wal"
+    success "Pywal cache removed."
+fi
+
+# 3. Restore Default Terminals
+if ask_confirmation "Restore default terminal emulators (gnome-terminal, etc.)?"; then
+    log "This will remove the kitty symlinks and attempt to restore the original terminals."
+    
+    # Restore gnome-terminal if it was symlinked to kitty
+    if [ -L /usr/bin/gnome-terminal ] && [[ "$(readlink /usr/bin/gnome-terminal)" == *kitty* ]]; then
+        log "Restoring gnome-terminal..."
+        sudo pacman -S --noconfirm gnome-terminal
+    fi
+    
+    # Restore xfce4-terminal if it was symlinked to kitty
+    if [ -L /usr/bin/xfce4-terminal ] && [[ "$(readlink /usr/bin/xfce4-terminal)" == *kitty* ]]; then
+        log "Restoring xfce4-terminal..."
+        sudo pacman -S --noconfirm xfce4-terminal
+    fi
+
+    # Remove x-terminal-emulator symlink if it points to kitty
+    if [ -L /usr/bin/x-terminal-emulator ] && [[ "$(readlink /usr/bin/x-terminal-emulator)" == *kitty* ]]; then
+        log "Removing x-terminal-emulator symlink..."
+        sudo rm /usr/bin/x-terminal-emulator
+    fi
+    
+    success "Default terminals restored."
+fi
+
+# 3. Uninstall Packages
 if ask_confirmation "Uninstall packages?"; then
     log "Preparing to uninstall packages..."
     

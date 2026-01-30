@@ -1,0 +1,28 @@
+{
+    "checksum": "17946b1fabe2d677951b60929cc66dcd",
+    "wallpaper": "/home/rodwell/wallpapers/walls/car.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0e2020",
+        "foreground": "#c2c7c7",
+        "cursor": "#c2c7c7"
+    },
+    "colors": {
+        "color0": "#0e2020",
+        "color1": "#412f30",
+        "color2": "#3e3b35",
+        "color3": "#514c43",
+        "color4": "#544e45",
+        "color5": "#912a23",
+        "color6": "#635b50",
+        "color7": "#909b9b",
+        "color8": "#5d7272",
+        "color9": "#573F40",
+        "color10": "#534F47",
+        "color11": "#6D665A",
+        "color12": "#70685C",
+        "color13": "#C2392F",
+        "color14": "#857A6B",
+        "color15": "#c2c7c7"
+    }
+}

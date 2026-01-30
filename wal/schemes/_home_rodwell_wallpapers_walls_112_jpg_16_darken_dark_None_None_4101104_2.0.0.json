@@ -1,0 +1,28 @@
+{
+    "checksum": "c4fb3d0df62903a9b0712a3539becdff",
+    "wallpaper": "/home/rodwell/wallpapers/walls/112.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#321829",
+        "foreground": "#cbc5c9",
+        "cursor": "#cbc5c9"
+    },
+    "colors": {
+        "color0": "#321829",
+        "color1": "#be7e14",
+        "color2": "#29457b",
+        "color3": "#761f63",
+        "color4": "#9f0964",
+        "color5": "#904e72",
+        "color6": "#0d72a2",
+        "color7": "#a1979d",
+        "color8": "#7b6573",
+        "color9": "#FEA91B",
+        "color10": "#375DA5",
+        "color11": "#9E2A85",
+        "color12": "#D50D86",
+        "color13": "#C06899",
+        "color14": "#1299D8",
+        "color15": "#cbc5c9"
+    }
+}

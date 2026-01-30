@@ -12,7 +12,7 @@ PACKAGES=(
     "hyprland" "waybar" "kitty" "fish" "neovim" "micro" "tofi" "wlogout" "wofi" "swaync" "btop" "cava" "nautilus"
     "mpd" "ncmpcpp" "clock-rs-git" "nwg-look" "bibata-cursor-theme" "clipvault-bin" "rxfetch" "zen-browser-bin"
     "sddm" "sddm-silent-theme"
-    "python-pywal16" "starship" "ttf-jetbrains-mono-nerd" "ttf-font-awesome"
+    "python-pywal16-git" "starship" "ttf-jetbrains-mono-nerd" "ttf-font-awesome"
     "git" "base-devel" "pantheon-polkit-agent" "qt5-wayland" "qt6-wayland"
     "xdg-desktop-portal-hyprland" "brightnessctl" "playerctl" "swww"
     "hyprlock" "waypaper" "eza" "pipewire-alsa" "pipewire-pulse" "wireplumber" "pavucontrol"
@@ -225,7 +225,32 @@ if ask_confirmation "Link dotfiles?"; then
     success "Dotfiles linked!"
 fi
 
-# 8. Set Shell
+# 8. Restore Pywal Theme
+if ask_confirmation "Restore Pywal color scheme from dotfiles?"; then
+    log "Copying Pywal color scheme to cache..."
+    mkdir -p "$HOME/.cache/"
+    cp -r "$DOTFILES_DIR/wal" "$HOME/.cache/"
+    success "Pywal theme restored."
+fi
+
+# 9. Set Kitty as Default Terminal (Advanced)
+if ask_confirmation "Set Kitty as the system-wide default terminal via symlinks (ADVANCED)?"; then
+    echo -e "${RED}[WARNING]${NC} This is a risky operation that uses sudo to overwrite system files."
+    echo -e "It will replace 'x-terminal-emulator', 'gnome-terminal', and 'xfce4-terminal' with symlinks to 'kitty'."
+    echo -e "This can break applications that depend on the original terminals. Proceed with caution."
+    
+    if ask_confirmation "Are you absolutely sure you want to proceed with symlinking?"; then
+        log "Symlinking Kitty as the default terminal..."
+        sudo ln -sf /usr/bin/kitty /usr/bin/x-terminal-emulator
+        sudo ln -sf /usr/bin/kitty /usr/bin/gnome-terminal
+        sudo ln -sf /usr/bin/kitty /usr/bin/xfce4-terminal
+        success "Kitty symlinked as default terminal."
+    else
+        log "Skipping Kitty symlinking."
+    fi
+fi
+
+# 9. Set Shell
 if ask_confirmation "Change default shell to Fish?"; then
     chsh -s $(which fish)
     success "Shell changed to Fish."
