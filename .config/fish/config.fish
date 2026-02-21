@@ -19,3 +19,5 @@ alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
 alias mirror="sudo reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 
 export EDITOR=micro
+
+fish_add_path /home/rodwell/.spicetify

@@ -18,7 +18,7 @@ PACKAGES=(
     "hyprlock" "waypaper" "eza" "pipewire-alsa" "pipewire-pulse" "wireplumber" "pavucontrol"
     "bluez" "bluez-utils" "blueman" "networkmanager" "iwd"
     "ananicy-cpp" "gamemode" "reflector" "irqbalance"
-    "hypridle" "pyprland" "wl-clipboard" "grim" "slurp" "jq"
+    "hypridle" "pyprland" "wl-clipboard" "grim" "slurp" "jq" "hyprpicker" "tela-circle-icon-theme-all"
 )
 
 # Fonts to install
@@ -183,7 +183,7 @@ if ask_confirmation "Link dotfiles?"; then
     }
 
     # Link .config directories
-    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look waypaper; do
+    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look waypaper pypr; do
         link_item ".config/$config"
     done
     link_item ".config/starship.toml"
@@ -194,8 +194,34 @@ if ask_confirmation "Link dotfiles?"; then
     link_item ".gitconfig"
     link_item "wallpapers"
 
+    # Copy scripts to .local/bin instead of linking
+    if [ -d "$DOTFILES_DIR/.local/bin" ]; then
+        local source_dir="$DOTFILES_DIR/.local/bin"
+        local target_dir="$HOME/.local/bin"
+        log "Copying scripts from $source_dir to $target_dir..."
+        mkdir -p "$target_dir"
+
+        for f in "$source_dir"/*; do
+            local filename=$(basename "$f")
+            local target_file="$target_dir/$filename"
+            if [ -e "$target_file" ] || [ -L "$target_file" ]; then
+                if [ "$DO_BACKUP" = true ]; then
+                    log "Backing up existing '$target_file'..."
+                    mkdir -p "$BACKUP_DIR/.local/bin"
+                    mv "$target_file" "$BACKUP_DIR/.local/bin/"
+                else
+                    log "Removing existing '$target_file' (no backup)..."
+                    rm -rf "$target_file"
+                fi
+            fi
+            log "Copying '$filename' to '$target_dir'..."
+            cp "$f" "$target_file"
+            chmod +x "$target_file"
+        done
+        success "Finished copying scripts to .local/bin."
+    fi
+
     # Link .local files
-    link_item ".local/bin"
     link_item ".local/share/fonts"
 
     # Link themes

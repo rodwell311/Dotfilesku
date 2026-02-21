@@ -6,58 +6,73 @@
     "control-center-layer": "top",
     "layer-shell": true,
     "cssPriority": "user",
-    "control-center-width": 350,
+    "blur": true,
+    "control-center-width": 300,
     "control-center-margin-top": 8,
     "control-center-margin-bottom": 8,
     "control-center-margin-right": 8,
     "control-center-margin-left": 0,
     "notification-2fa-action": true,
     "notification-inline-replies": true,
-    "notification-window-width": 350,
-    "notification-icon-size": 60,
-    "notification-body-image-height":  180,
-    "notification-body-image-width": 180,
-    "timeout": 12,
-    "timeout-low": 6,
-    "timeout-critical": 1,
+    "notification-window-width": 300,
+    "notification-icon-size": 48,
+    "notification-body-image-height": 200,
+    "notification-body-image-width": 200,
+    "timeout": 10,
+    "timeout-low": 5,
+    "timeout-critical": 0,
     "fit-to-screen": true,
     "keyboard-shortcuts": true,
-    "image-visibility": "when available",
-    "transition-time": 200,
-    "hide-on-clear": false,
+    "image-visibility": "always",
+    "transition-time": 800,
+    "hide-on-clear": true,
     "hide-on-action": true,
     "script-fail-notify": true,
+    "notification-visibility": {
+        "example-name": {
+            "state": "muted",
+            "urgency": "Low",
+            "app-name": "Spotify"
+        }
+    },
     "widgets": [
-        "mpris",
-        "title",
-        "notifications",
+        "buttons-grid",
         "volume",
         "backlight",
-        "buttons-grid"
+        "mpris",
+        "title",
+        "notifications"
     ],
     "widget-config": {
         "title": {
-            "text": "Notification Center",
+            "text": "Notifications",
             "clear-all-button": true,
-            "button-text": "󰆴"
+            "button-text": "Clear"
         },
-        "label": {
-            "max-lines":1,
-            "text": "Notification Center!"
-        },
-
-        "mpris": {
-            "image-size": 80,
-            "image-radius": 0
-        },
+        "mpris": {},
         "volume": {
-            "label": "󰕾 "
+            "label": "󰕾"
         },
         "backlight": {
-            "label": "󰃟 "
+            "label": "󰃟"
         },
         "buttons-grid": {
             "actions": [
+                {
+                    "label": "",
+                    "command": "rfkill toggle wifi",
+                    "type": "toggle"
+                },
+                {
+                    "label": "",
+                    "command": "rfkill toggle bluetooth",
+                    "type": "toggle"
+                },
+                {
+                    "label": "󰤄",
+                    "command": "swaync-client -d",
+                    "type": "toggle"
+                },
                 {
                     "label": "󰝟",
                     "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
@@ -68,55 +83,11 @@
                     "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
                     "type": "toggle"
                 },
-
-                {
-                    "label": "",
-                    "command": "kitty nmtui"
-                },
-                {
-                    "label": "",
-                    "command": "blueman-manager"
-                },
-                {
-                    "label":"󰤄",
-                    "command": "swaync-client -d",
-                    "type":"toggle"
-                },
-
-                {
-                    "label": "󰀟",
-                    "command": "gnome-network-displays"
-                },
-
-                {
-                    "label": "󰈙",
-                    "command": "kitty bash -i -c 'Docs'"
-                },
-                {
-                    "label": "",
-                    "command": "kitty bash -i -c 'Settings'"
-                    
-                },
-                {
-                    "label": "",
-                    "command": "kitty bash -i -c 'tasks'"
-
-                },
                 {
                     "label": "",
                     "command": "hyprlock"
-                },
-                {
-                    "label":"",
-                    "command": "reboot"
-                },
-                {
-                    "label":"",
-                    "command": "shutdown now"
                 }
-
             ]
         }
     }
 }
-

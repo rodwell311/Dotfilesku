@@ -4,12 +4,14 @@ My personal dotfiles for Linux (Arch/CachyOS). This repository includes an insta
 
 ## Content
 
+![Desktop Preview](./assets/preview.png)
+
 - **Window Manager:** Hyprland
 - **Bar:** Waybar
 - **Terminal:** Kitty
 - **Shell:** Fish / Zsh
 - **Editor:** Neovim
-- **Launcher:** Wofi
+- **Launcher:** Tofi
 - **Notifications:** SwayNC
 - **System Monitor:** Btop
 - **Visualizer:** Cava

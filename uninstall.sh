@@ -17,7 +17,7 @@ PACKAGES=(
     "hyprlock" "waypaper" "eza" "pipewire-alsa" "pipewire-pulse" "wireplumber" "pavucontrol"
     "bluez" "bluez-utils" "blueman" "networkmanager" "iwd"
     "ananicy-cpp" "gamemode" "reflector" "irqbalance"
-    "hypridle" "pyprland" "wl-clipboard" "grim" "slurp" "jq"
+    "hypridle" "pyprland" "wl-clipboard" "grim" "slurp" "jq" "hyprpicker" "tela-circle-icon-theme-all"
 )
 
 # Fonts to uninstall
@@ -74,7 +74,7 @@ if ask_confirmation "Unlink dotfiles and remove symlinks?"; then
     }
 
     # Unlink .config directories
-    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look; do
+    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look pypr; do
         unlink_item ".config/$config"
     done
     unlink_item ".config/starship.toml"
