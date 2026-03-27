@@ -11,7 +11,7 @@ PACKAGES=(
     "hyprland" "waybar" "kitty" "fish" "neovim" "micro" "tofi" "wlogout" "wofi" "swaync" "btop" "cava" "nautilus" "vscodium"
     "mpd" "ncmpcpp" "clock-rs-git" "nwg-look" "bibata-cursor-theme" "clipvault-bin" "rxfetch" "zen-browser-bin"
     "sddm" "sddm-silent-theme"
-    "python-pywal16-git" "starship" "ttf-jetbrains-mono-nerd" "ttf-font-awesome"
+    "starship" "ttf-jetbrains-mono-nerd" "ttf-font-awesome"
     "git" "base-devel" "pantheon-polkit-agent" "qt5-wayland" "qt6-wayland"
     "xdg-desktop-portal-hyprland" "brightnessctl" "playerctl" "swww"
     "hyprlock" "waypaper" "eza" "pipewire-alsa" "pipewire-pulse" "wireplumber" "pavucontrol"

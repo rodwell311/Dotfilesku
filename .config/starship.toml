@@ -1,12 +1,14 @@
+palette = "theme"
+
 format = """ 
 \
-[](fg:blue)\
+[](fg:os_bg)\
 $os\
-[](bg:blue fg:red)\
+[](bg:os_bg fg:user_bg)\
 $username\
-[](bg:red fg:green)\
+[](bg:user_bg fg:dir_bg)\
 $directory\
-[ ](fg:green)\
+[ ](fg:dir_bg)\
 $git_branch\
 $git_status\
 $all\
@@ -14,12 +16,15 @@ $character"""
 
 [username]
 show_always = true
-format = '[$user ](bg:red fg:black)'
+style_user = "bg:user_bg fg:black"
+style_root = "bg:user_bg fg:black"
+format = '[$user ]($style)'
 disabled = false
 
 [os]
 disabled = false
-style = 'bg:blue fg:black'
+style = 'bg:os_bg fg:black'
+format = '[$symbol]($style)'
 [os.symbols]
 Alpaquita = " "
 Alpine = " "
@@ -71,7 +76,8 @@ Windows = "󰍲 "
 format = "[$duration](fg:red)"
 
 [directory]
-format = "[$path](bg:green fg:black)"
+format = "[$path]($style)"
+style = "bg:dir_bg fg:black"
 truncation_length = 2
 truncation_symbol = "…/"
 
@@ -254,3 +260,8 @@ format = '[$symbol($version)]($style)'
 [gradle]
 symbol = "  "
 format = '[$symbol($version)]($style)'
+
+[palettes.theme]
+os_bg = "#89b4fa"
+user_bg = "#f5c2e7"
+dir_bg = "#94e2d5"
