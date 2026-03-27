@@ -1,0 +1,7 @@
+{
+ "telemetry.telemetryLevel": "off",
+  "python.analysis.logLevel": "Off",
+  "python.languageServer": "Default",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Gruvbox Dark Hard"
+}

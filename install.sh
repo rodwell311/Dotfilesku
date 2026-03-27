@@ -9,7 +9,7 @@ LOG_FILE="$DOTFILES_DIR/install.log"
 
 # Packages to install
 PACKAGES=(
-    "hyprland" "waybar" "kitty" "fish" "neovim" "micro" "tofi" "wlogout" "wofi" "swaync" "btop" "cava" "nautilus"
+    "hyprland" "waybar" "kitty" "fish" "neovim" "micro" "tofi" "wlogout" "wofi" "swaync" "btop" "cava" "nautilus" "vscodium"
     "mpd" "ncmpcpp" "clock-rs-git" "nwg-look" "bibata-cursor-theme" "clipvault-bin" "rxfetch" "zen-browser-bin"
     "sddm" "sddm-silent-theme"
     "python-pywal16-git" "starship" "ttf-jetbrains-mono-nerd" "ttf-font-awesome"
@@ -183,7 +183,7 @@ if ask_confirmation "Link dotfiles?"; then
     }
 
     # Link .config directories
-    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look waypaper pypr; do
+    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look waypaper pypr VSCodium; do
         link_item ".config/$config"
     done
     link_item ".config/starship.toml"
