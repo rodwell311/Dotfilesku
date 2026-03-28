@@ -184,7 +184,17 @@ if ask_confirmation "Disable SDDM?"; then
     success "SDDM disabled."
 fi
 
-# 5. Restore Shell (Optional)
+# 5. Remove auto-cpufreq (Optional)
+if pacman -Qi "auto-cpufreq" &> /dev/null; then
+    if ask_confirmation "Remove auto-cpufreq daemon?"; then
+        log "Removing auto-cpufreq daemon..."
+        sudo systemctl disable --now auto-cpufreq
+        sudo auto-cpufreq --remove
+        success "auto-cpufreq daemon removed."
+    fi
+fi
+
+# 6. Restore Shell (Optional)
 if ask_confirmation "Change default shell back to Bash?"; then
     chsh -s $(which bash)
     success "Shell changed to Bash."

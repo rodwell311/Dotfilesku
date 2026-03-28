@@ -17,7 +17,7 @@ PACKAGES=(
     "xdg-desktop-portal-hyprland" "brightnessctl" "playerctl" "swww"
     "hyprlock" "waypaper" "eza" "pipewire-alsa" "pipewire-pulse" "wireplumber" "pavucontrol"
     "bluez" "bluez-utils" "blueman" "networkmanager" "iwd"
-    "ananicy-cpp" "gamemode" "reflector" "irqbalance"
+    "ananicy-cpp" "gamemode" "reflector" "irqbalance" "auto-cpufreq"
     "hypridle" "pyprland" "wl-clipboard" "grim" "slurp" "jq" "hyprpicker" "tela-circle-icon-theme-all"
 )
 
@@ -251,6 +251,16 @@ if ask_confirmation "Link dotfiles?"; then
     success "Dotfiles linked!"
 fi
 
+# 8. Setup auto-cpufreq
+if pacman -Qi "auto-cpufreq" &> /dev/null; then
+    if ask_confirmation "Setup auto-cpufreq (CPU power management)?"; then
+        log "Enabling and starting auto-cpufreq via --install and systemctl..."
+        sudo auto-cpufreq --install
+        sudo systemctl enable --now auto-cpufreq
+        success "auto-cpufreq setup complete."
+    fi
+fi
+
 # 9. Set Kitty as Default Terminal (Advanced)
 if ask_confirmation "Set Kitty as the system-wide default terminal via symlinks (ADVANCED)?"; then
     echo -e "${RED}[WARNING]${NC} This is a risky operation that uses sudo to overwrite system files."
@@ -268,7 +278,7 @@ if ask_confirmation "Set Kitty as the system-wide default terminal via symlinks 
     fi
 fi
 
-# 9. Set Shell
+# 10. Set Shell
 if ask_confirmation "Change default shell to Fish?"; then
     chsh -s $(which fish)
     success "Shell changed to Fish."

@@ -7,7 +7,7 @@
         "folders": [],
         "emptyWindows": [
             {
-                "backupFolder": "1774573894621"
+                "backupFolder": "1774664432979"
             }
         ]
     },
@@ -15,7 +15,7 @@
     "profileAssociations": {
         "workspaces": {},
         "emptyWindows": {
-            "1774573894621": "__default__profile__"
+            "1774664432979": "__default__profile__"
         }
     },
     "theme": "vs-dark",
@@ -41,21 +41,21 @@
             "editorPartMinWidth": 220,
             "titleBarHeight": 35,
             "activityBarWidth": 48,
-            "sideBarWidth": 170,
-            "auxiliaryBarWidth": 170,
+            "sideBarWidth": 0,
+            "auxiliaryBarWidth": 0,
             "statusBarHeight": 22,
             "windowBorder": false
         }
     },
     "windowsState": {
         "lastActiveWindow": {
-            "backupPath": "/home/rodwell/.config/VSCodium/Backups/1774573894621",
+            "backupPath": "/home/rodwell/.config/VSCodium/Backups/1774664432979",
             "uiState": {
                 "mode": 0,
                 "x": 0,
                 "y": 0,
-                "width": 1366,
-                "height": 768
+                "width": 679,
+                "height": 736
             }
         },
         "openedWindows": []
