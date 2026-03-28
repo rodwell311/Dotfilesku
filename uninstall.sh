@@ -8,7 +8,7 @@ LOG_FILE="$DOTFILES_DIR/uninstall.log"
 
 # Packages to uninstall (same as install.sh)
 PACKAGES=(
-    "hyprland" "waybar" "kitty" "fish" "neovim" "micro" "tofi" "wlogout" "wofi" "swaync" "btop" "cava" "nautilus" "vscodium"
+    "hyprland" "waybar" "kitty" "fish" "neovim" "micro" "tofi" "wlogout" "wofi" "swaync" "btop" "cava" "nautilus"
     "mpd" "ncmpcpp" "clock-rs-git" "nwg-look" "bibata-cursor-theme" "clipvault-bin" "rxfetch" "zen-browser-bin"
     "sddm" "sddm-silent-theme"
     "starship" "ttf-jetbrains-mono-nerd" "ttf-font-awesome"
@@ -74,7 +74,7 @@ if ask_confirmation "Unlink dotfiles and remove symlinks?"; then
     }
 
     # Unlink .config directories
-    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look waypaper pypr VSCodium; do
+    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look waypaper pypr; do
         unlink_item ".config/$config"
     done
     unlink_item ".config/starship.toml"
