@@ -10,7 +10,7 @@ LOG_FILE="$DOTFILES_DIR/install.log"
 # Packages to install
 PACKAGES=(
     "hyprland" "waybar" "kitty" "fish" "neovim" "micro" "tofi" "wlogout" "wofi" "swaync" "btop" "cava" "nautilus"
-    "mpd" "ncmpcpp" "clock-rs-git" "nwg-look" "bibata-cursor-theme" "clipvault-bin" "rxfetch" "zen-browser-bin"
+    "mpd" "ncmpcpp" "clock-rs-git" "nwg-look" "bibata-cursor-theme" "clipvault-bin" "rxfetch" "helium-browser-bin"
     "sddm" "sddm-silent-theme"
     "starship" "ttf-jetbrains-mono-nerd" "ttf-font-awesome"
     "git" "base-devel" "pantheon-polkit-agent" "qt5-wayland" "qt6-wayland"
