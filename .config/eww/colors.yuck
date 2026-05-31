@@ -1,0 +1,7 @@
+(defvar c_bg_main "#1e1e2e")
+(defvar c_bg_sec "#45475a")
+(defvar c_bg_overlay "#1e1e2e")
+(defvar c_fg_main "#cdd6f4")
+(defvar c_fg_muted "#a6adc8")
+(defvar c_connection "#f9e2af")
+(defvar c_city "#f5c2e7")

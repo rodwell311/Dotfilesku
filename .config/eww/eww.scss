@@ -1,0 +1,26 @@
+@import "colors.scss";
+
+* { all: unset; }
+
+.main-window { border: none; }
+
+.custom-scale trough {
+  background-color: $bg_slider; /* bg slider*/
+  border-radius: 10px;
+  min-height: 15px;
+}
+
+.custom-scale highlight {
+  background-color: $accent; /* slider */
+  border-radius: 10px;
+}
+
+.custom-scale slider {
+  background-color: $fg_slider; /* dot slider */
+  border-radius: 50%;
+  min-height: 14px;
+  min-width: 14px;
+  margin: -4px 0; 
+}
+
+button { border: none; box-shadow: none; outline: none; }

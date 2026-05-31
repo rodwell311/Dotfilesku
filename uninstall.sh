@@ -8,7 +8,7 @@ LOG_FILE="$DOTFILES_DIR/uninstall.log"
 
 # Packages to uninstall (same as install.sh)
 PACKAGES=(
-    "hyprland" "waybar" "kitty" "fish" "neovim" "micro" "tofi" "wlogout" "wofi" "swaync" "btop" "cava" "nautilus"
+    "hyprland" "waybar" "eww" "pamixer" "mpc" "kitty" "fish" "neovim" "micro" "tofi" "wlogout" "wofi" "swaync" "btop" "cava" "nautilus" "fastfetch" "paru"
     "mpd" "ncmpcpp" "clock-rs-git" "nwg-look" "bibata-cursor-theme" "clipvault-bin" "rxfetch" "helium-browser-bin"
     "sddm" "sddm-silent-theme"
     "starship" "ttf-jetbrains-mono-nerd" "ttf-font-awesome"
@@ -74,7 +74,7 @@ if ask_confirmation "Unlink dotfiles and remove symlinks?"; then
     }
 
     # Unlink .config directories
-    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look waypaper pypr; do
+    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look waypaper pypr eww fastfetch paru; do
         unlink_item ".config/$config"
     done
     unlink_item ".config/starship.toml"
@@ -101,6 +101,10 @@ if ask_confirmation "Unlink dotfiles and remove symlinks?"; then
     fi
     
     success "Dotfiles unlinked."
+    if [ -f "/usr/bin/langgar" ]; then
+        log "Removing langgar binary..."
+        sudo rm "/usr/bin/langgar"
+    fi
 fi
 
 # 2. Clean Pywal Cache

@@ -3,7 +3,7 @@ starship init fish | source
 
 # overwrite greeting
 function fish_greeting
-    rxfetch
+    fastfetch
 end
 
 # Useful aliases

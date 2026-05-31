@@ -1,0 +1,167 @@
+(defpoll icon_dir :interval "24h" "echo $HOME/.config/eww/icons")
+
+(include "colors.yuck")
+
+(defvar current_theme "dark")
+
+;; Polls
+(defpoll user :interval "24h" "whoami | sed 's/.*/\\u&/'")
+(defpoll full_date :interval "1h" "~/.config/eww/scripts/get_date.sh")
+(defpoll cpu :interval "1s" "~/.config/eww/scripts/system_info.sh cpu")
+(defpoll ram :interval "1s" "~/.config/eww/scripts/system_info.sh ram")
+(defpoll root_avail :interval "10s" "~/.config/eww/scripts/storage.sh root_avail")
+(defpoll home_avail :interval "10s" "~/.config/eww/scripts/storage.sh home_avail")
+(defpoll root_use :interval "10s" "~/.config/eww/scripts/storage.sh root_use")
+(defpoll home_use :interval "10s" "~/.config/eww/scripts/storage.sh home_use")
+(defpoll bat :interval "30s" "~/.config/eww/scripts/system_info.sh bat_perc")
+(defpoll bat_status :interval "5s" "~/.config/eww/scripts/system_info.sh bat_status")
+(defpoll wifi :interval "2s" "~/.config/eww/scripts/net_info.sh wifi")
+(defpoll bt :interval "2s" "~/.config/eww/scripts/net_info.sh bt")
+(defpoll city :interval "24h" "~/.config/eww/scripts/prayer.sh city")
+(defpoll hijri :interval "1h" "~/.config/eww/scripts/prayer.sh hijri")
+(defpoll p_subuh :interval "1h" "~/.config/eww/scripts/prayer.sh subuh")
+(defpoll p_dzuhur :interval "1h" "~/.config/eww/scripts/prayer.sh dzuhur")
+(defpoll p_ashar :interval "1h" "~/.config/eww/scripts/prayer.sh ashar")
+(defpoll p_maghrib :interval "1h" "~/.config/eww/scripts/prayer.sh maghrib")
+(defpoll p_isya :interval "1h" "~/.config/eww/scripts/prayer.sh isya")
+(defpoll vol :interval "1s" "pamixer --get-volume")
+(defpoll is_muted :interval "1s" "pamixer --get-mute")
+(defpoll bri :interval "1s" "brightnessctl -m | cut -d, -f4 | tr -d '%'")
+(defpoll music_title :interval "1s" "playerctl metadata --format '{{title}}' || echo 'No Media'")
+(defpoll music_artist :interval "1s" "playerctl metadata --format '{{artist}}' || echo 'Offline'")
+(defpoll music_status :interval "1s" "playerctl status || echo 'Paused'")
+
+;; Prayer Card
+(defwidget pray_card [name time icon ]
+  (box :orientation "vertical" :spacing 0 :hexpand true 
+       :style "background-color: ${c_bg_overlay}; padding: 6px 2px; border-radius: 10px;"
+    (image :path "${icon_dir}/${current_theme}/${icon}.svg" :image-width 16)
+    (label :style "font-size: 11px; font-weight: bold; margin-top: 3px; color: ${c_fg_main};" :text time)
+    (label :style "font-size: 9px; color: ${c_fg_muted}; font-weight: bold;" :text name)))
+
+;; Power Button
+(defwidget power_button [icon onclick color]
+  (button :onclick onclick :hexpand true
+          :style "background-color: ${c_bg_sec}; border-radius: 12px; padding: 8px;"
+    (label :text icon :style "font-size: 18px; color: ${color};")))
+
+;; Main Box
+
+(defwidget main_box []
+  (box :orientation "vertical" :space-evenly false 
+       :style "background-color: ${c_bg_main}; color: ${c_fg_main}; border-radius: 16px; padding: 12px; border: none;"
+    
+    ;; Header
+    (image :path "${icon_dir}/${current_theme}/user.svg" :image-width 60)
+    (box :orientation "vertical" :spacing 1 :halign "center" :style "margin-bottom: 8px;"
+      (label :style "font-size: 16px; font-weight: bold; color: ${c_connection};" :text user)
+      (label :style "font-size: 11px; color: ${c_fg_muted};" :text full_date))
+
+    (box :orientation "vertical" :spacing 1 :halign "center" :style "margin-bottom: 8px;"
+      (label :text city :style "font-size: 11px; font-weight: bold; color: ${c_city};")
+      (label :text hijri :style "font-size: 11px; font-weight: bold; color: ${c_city};"))
+
+    ;; Prayer
+    (box :orientation "vertical" :style "background-color: ${c_bg_sec}; padding: 6px; border-radius: 12px; margin-bottom: 8px;"
+      (box :orientation "horizontal" :spacing 6
+        (pray_card :name "SUBUH" :time p_subuh :icon "fajr")
+        (pray_card :name "DZUHUR" :time p_dzuhur :icon "dhuhr")
+        (pray_card :name "ASHAR" :time p_ashar :icon "asr")
+        (pray_card :name "MAGHRIB" :time p_maghrib :icon "maghrib")
+        (pray_card :name "ISYA" :time p_isya :icon "isha")))
+
+    ;; Stats
+    (box :orientation "horizontal" :spacing 6 :style "margin-bottom: 8px;"
+      (box :orientation "vertical" :hexpand true :style "background-color: ${c_bg_sec}; padding: 8px 4px; border-radius: 12px;"
+        (image :path "${icon_dir}/${current_theme}/cpu.svg" :image-width 16)
+        (label :style "font-size: 11px; font-weight: bold; margin-top: 4px;" :text "${cpu}%"))
+      (box :orientation "vertical" :hexpand true :style "background-color: ${c_bg_sec}; padding: 8px 4px; border-radius: 12px;"
+        (image :path "${icon_dir}/${current_theme}/ram.svg" :image-width 16)
+        (label :style "font-size: 11px; font-weight: bold; margin-top: 4px;" :text ram))
+      (box :orientation "vertical" :hexpand true :style "background-color: ${c_bg_sec}; padding: 8px 4px; border-radius: 12px;"
+        (image :path "${icon_dir}/${current_theme}/${bat_status == 'Charging' ? 'battery-charging' : 'battery'}.svg" :image-width 16)
+        (label :style "font-size: 11px; font-weight: bold; margin-top: 4px;" :text "${bat}%")))
+
+    (box :orientation "horizontal" :spacing 6 :style "margin-bottom: 8px;"
+      (box :orientation "vertical" :hexpand true :style "background-color: ${c_bg_sec}; padding: 8px 4px; border-radius: 12px;"
+        (image :path "${icon_dir}/${current_theme}/root.svg" :image-width 16)
+        (label :style "font-size: 10px; font-weight: bold; margin-top: 4px;" :text "F: ${root_avail} / U: ${root_use}"))
+      (box :orientation "vertical" :hexpand true :style "background-color: ${c_bg_sec}; padding: 8px 4px; border-radius: 12px;"
+        (image :path "${icon_dir}/${current_theme}/home.svg" :image-width 16)
+        (label :style "font-size: 10px; font-weight: bold; margin-top: 4px;" :text "F: ${home_avail} / U: ${home_use}")))
+
+
+    ;; WiFi & BT 
+    (box :orientation "horizontal" :spacing 6 :style "margin-bottom: 8px;"
+
+      (button :onclick "~/.config/eww/scripts/action_handler.sh wifi" :hexpand true :style "background: none; border: none; box-shadow: none; padding: 0;"
+        (box :orientation "vertical" 
+             :style "background-color: ${wifi == 'Disconnected' ? c_bg_sec : c_connection}; padding: 8px 4px; border-radius: 12px;"
+          (image :path "${icon_dir}/${current_theme}/${wifi == 'Disconnected' ? 'wifi-off' : 'wifi'}.svg" :image-width 16)
+          (label :style "font-size: 11px; font-weight: bold; margin-top: 4px; color: ${wifi == 'Disconnected' ? c_fg_main : c_bg_main};" :limit-width 10 :text wifi)))
+
+      (button :onclick "~/.config/eww/scripts/action_handler.sh bluetooth" :hexpand true :style "background: none; border: none; box-shadow: none; padding: 0;"
+        (box :orientation "vertical" 
+             :style "background-color: ${bt == 'Off' ? c_bg_sec : c_connection}; padding: 12px 5px; border-radius: 12px;"
+          (image :path "${icon_dir}/${current_theme}/${bt == 'Off' ? 'bluetooth-off' : 'bluetooth'}.svg" :image-width 16)
+          (label :style "font-size: 11px; font-weight: bold; margin-top: 4px; color: ${bt == 'Off' ? c_fg_main : c_bg_main};" :limit-width 10 :text bt))))
+
+    ;; Volume & Brightness 
+    (box :orientation "vertical" :spacing 10 :style "background-color: ${c_bg_sec}; padding: 10px; border-radius: 12px; margin-bottom: 8px;"
+
+      (box :orientation "horizontal" :space-evenly false :spacing 10 :valign "center"
+        (box :width 20 :halign "center"
+          (button :onclick "pamixer -t" :style "background: none; border: none;"
+            (image :path "${icon_dir}/${current_theme}/${is_muted == 'true' ? 'volume-mute' : 'volume'}.svg" :image-width 16)))
+        (scale :class "custom-scale" :value {vol != "" ? vol : 0} :min 0 :max 101 :onchange "pamixer --set-volume {}" :hexpand true))
+
+      (box :orientation "horizontal" :space-evenly false :spacing 10 :valign "center"
+        (box :width 20 :halign "center"
+          (image :path "${icon_dir}/${current_theme}/brightness.svg" :image-width 16))
+        (scale :class "custom-scale" :value {bri != "" ? bri : 0} :min 0 :max 101 :onchange "brightnessctl s {}%" :hexpand true)))
+
+    ;; Media player
+    (box :orientation "horizontal" :spacing 10 :space-evenly false 
+         :style "background-color: ${c_bg_sec}; padding: 10px; border-radius: 14px;"
+      (button :onclick "~/.config/eww/scripts/action_handler.sh spotify" 
+          :style "background: none; border: none; box-shadow: none;"
+        (image :path "${icon_dir}/${current_theme}/disk.svg" :image-width 50))
+   
+      (box :orientation "vertical" :valign "center" :hexpand true
+        (label :style "font-weight: bold; font-size: 11px; color: ${c_fg_main};" :halign "start" :limit-width 12 :text music_title)
+        (label :style "font-size: 10px; color: ${c_fg_muted};" :halign "start" :limit-width 12 :text music_artist))
+      
+      (box :spacing 8 :valign "center"
+        (button :onclick "playerctl previous" :style "background: none; border: none; box-shadow: none;"
+          (image :path "${icon_dir}/${current_theme}/prev.svg" :image-width 16))
+        
+        (button :onclick "playerctl play-pause" :style "background: none; border: none; box-shadow: none;"
+          (image :path "${icon_dir}/${current_theme}/${music_status == 'Playing' ? 'pause' : 'play'}.svg" :image-width 20))
+        
+        (button :onclick "playerctl next" :style "background: none; border: none; box-shadow: none;"
+          (image :path "${icon_dir}/${current_theme}/next.svg" :image-width 16)))
+    )
+
+    ;; Power Menu & Theme
+    (box :orientation "horizontal" :spacing 6 :style "margin-top: 8px;"
+      (power_button :icon "󰐥" :onclick "systemctl poweroff" :color "#f38ba8")
+      (power_button :icon "󰜉" :onclick "systemctl reboot" :color "#a6e3a1")
+      (power_button :icon "󰌾" :onclick "hyprlock" :color "#89b4fa")
+      (power_button :icon "󰗽" :onclick "hyprctl dispatch exit" :color "#cba6f7")
+      (button :onclick "~/.config/eww/scripts/toggle_theme.sh" :hexpand true
+          :style "background-color: ${c_bg_sec}; border-radius: 12px; padding: 8px;"
+        (label :text {current_theme == "dark" ? "󰖔" : "󰖨"} 
+               :style "font-size: 18px; color: ${c_connection};"))
+    )
+
+  ))
+
+(defwindow control_center
+  :monitor 0
+  :stacking "fg"
+  :windowtype "normal"
+  :wm-ignore true
+  :focusable false
+  :geometry (geometry :x "4px" :y "4px" :width "300px" :anchor "top right")
+  (main_box))
+

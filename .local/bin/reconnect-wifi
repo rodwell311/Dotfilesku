@@ -1,0 +1,20 @@
+#!/bin/bash
+
+INTERFACE="wlan0"
+CONNECTION=$(nmcli -t -f NAME connection show --active | head -1)
+
+echo "Disconnecting from $CONNECTION..."
+nmcli device disconnect $INTERFACE
+
+sleep 2
+
+echo "Reconnecting to $CONNECTION..."
+nmcli connection up "$CONNECTION"
+
+sleep 3
+
+if nmcli -t -f GENERAL.STATE device show $INTERFACE | grep -q "100"; then
+    notify-send "WiFi" "Reconnected to $CONNECTION!" -i network-wireless -u normal
+else
+    notify-send "WiFi" "Failed to reconnect to $CONNECTION" -i network-wireless-offline -u critical
+fi

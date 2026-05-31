@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 24 24"
+   fill="none"
+   stroke="#e0def4"
+   stroke-width="2"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="battery.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="9.2708333"
+     inkscape:cx="7.8202248"
+     inkscape:cy="24.755056"
+     inkscape:window-width="1894"
+     inkscape:window-height="1021"
+     inkscape:window-x="10"
+     inkscape:window-y="43"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <rect
+     x="2"
+     y="7"
+     width="16"
+     height="10"
+     rx="2"
+     ry="2"
+     id="rect1"
+     style="fill:#191724;fill-opacity:1;stroke:#191724;stroke-opacity:1" />
+  <line
+     x1="22"
+     y1="11"
+     x2="22"
+     y2="13"
+     id="line1"
+     style="stroke:#191724;stroke-opacity:1" />
+</svg>

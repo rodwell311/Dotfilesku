@@ -14,7 +14,7 @@
     "modules-right": [
         "group/tray-expander",
         "pulseaudio",
-        "network",
+        "custom/network",
         "group/hardware",
         "battery",
         "custom/notification",
@@ -56,7 +56,23 @@
     },
     "clock": {
         "format": "{:%a %d %b  %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "{calendar}",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#cdd6f4'>{}</span>",
+                "days":       "<span color='#a6adc8'>{}</span>",
+                "weekdays":   "<span color='#f9e2af'>{}</span>",
+                "today":      "<span color='#f38ba8'><u>{}</u></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -73,13 +89,10 @@
         },
         "on-click": "pavucontrol"
     },
-    "network": {
-        "format-wifi": "  {bandwidthDownBytes}",
-        "format-ethernet": " {bandwidthDownBytes}",
-        "format-linked": " {bandwidthDownBytes}",
-        "format-disconnected": "⚠",
-        "tooltip-format": "{essid} ({signalStrength}%) ⬆ {bandwidthUpBytes} ⬇ {bandwidthDownBytes}",
-        "interval": 2,
+    "custom/network": {
+        "exec": "~/.config/waybar/scripts/network_speed.sh",
+        "return-type": "json",
+        "interval": 1,
         "on-click": "kitty --title nmtui -e nmtui"
     },
     "group/hardware": {
@@ -144,9 +157,10 @@
     "custom/notification": {
         "tooltip": false,
         "format": " ",
-        "on-click": "swaync-client -t -sw"
-    },
-    "tray": {
+        // "on-click": "swaync-client -t -sw"
+        "on-click": "~/.config/eww/scripts/toggle_cc.sh"
+
+        },    "tray": {
         "icon-size": 14,
         "spacing": 8
     }

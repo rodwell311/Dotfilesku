@@ -81,6 +81,43 @@ main() {
         pkill -USR1 kitty
     fi
 
+    # 8. Update Eww Colors
+    if pgrep -x "eww" > /dev/null; then
+        C_BG=$(get_hex "\$background")
+        C_FG=$(get_hex "\$foreground")
+        C_SEC=$(get_hex "\$color0")
+        C_ACCENT=$(get_hex "\$color3")
+        C_MUTED=$(get_hex "\$color15")
+        C_CITY=$(get_hex "\$color5")
+
+        # Update Yuck variables for immediate effect
+        eww update c_bg_main="$C_BG" \
+                   c_bg_sec="$C_SEC" \
+                   c_bg_overlay="$C_BG" \
+                   c_fg_main="$C_FG" \
+                   c_fg_muted="$C_MUTED" \
+                   c_connection="$C_ACCENT" \
+                   c_city="$C_CITY"
+
+        # Update colors.yuck for persistence
+        EWW_YUCK_COLORS="$HOME/.config/eww/colors.yuck"
+        echo "(defvar c_bg_main \"$C_BG\")" > "$EWW_YUCK_COLORS"
+        echo "(defvar c_bg_sec \"$C_SEC\")" >> "$EWW_YUCK_COLORS"
+        echo "(defvar c_bg_overlay \"$C_BG\")" >> "$EWW_YUCK_COLORS"
+        echo "(defvar c_fg_main \"$C_FG\")" >> "$EWW_YUCK_COLORS"
+        echo "(defvar c_fg_muted \"$C_MUTED\")" >> "$EWW_YUCK_COLORS"
+        echo "(defvar c_connection \"$C_ACCENT\")" >> "$EWW_YUCK_COLORS"
+        echo "(defvar c_city \"$C_CITY\")" >> "$EWW_YUCK_COLORS"
+        touch "$HOME/.config/eww/eww.yuck"
+
+        # Update SCSS variables
+        EWW_SCSS_PATH="$HOME/.config/eww/colors.scss"
+        echo "\$bg_slider: $C_SEC;" > "$EWW_SCSS_PATH"
+        echo "\$accent: $C_ACCENT;" >> "$EWW_SCSS_PATH"
+        echo "\$fg_slider: $C_FG;" >> "$EWW_SCSS_PATH"
+        touch "$HOME/.config/eww/eww.scss"
+    fi
+
     # Notifikasi
     notify-send "Theme Updated" "System theme changed to: ${choice}"
 }

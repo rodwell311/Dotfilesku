@@ -9,7 +9,7 @@ LOG_FILE="$DOTFILES_DIR/install.log"
 
 # Packages to install
 PACKAGES=(
-    "hyprland" "waybar" "kitty" "fish" "neovim" "micro" "tofi" "wlogout" "wofi" "swaync" "btop" "cava" "nautilus"
+    "hyprland" "waybar" "eww" "rust" "pamixer" "mpc" "kitty" "fish" "neovim" "micro" "tofi" "wlogout" "wofi" "swaync" "btop" "cava" "nautilus" "fastfetch" "paru"
     "mpd" "ncmpcpp" "clock-rs-git" "nwg-look" "bibata-cursor-theme" "clipvault-bin" "rxfetch" "helium-browser-bin"
     "sddm" "sddm-silent-theme"
     "starship" "ttf-jetbrains-mono-nerd" "ttf-font-awesome"
@@ -133,6 +133,19 @@ if ask_confirmation "Install additional fonts (Nerd Fonts, Noto, Apple, Microsof
     fi
 fi
 
+# 5b. Install Langgar (Prayer Times Tool)
+if ask_confirmation "Install langgar (Prayer times tool from source)?"; then
+    log "Installing langgar..."
+    rm -rf /tmp/langgar
+    git clone https://gitlab.com/nesstero/langgar.git /tmp/langgar
+    cd /tmp/langgar && make build_rust
+    
+    sudo cp /tmp/langgar/target/release/langgar-cli /usr/bin/langgar
+    sudo chmod +x /usr/bin/langgar
+    success "langgar installed to /usr/bin/langgar."
+    cd "$DOTFILES_DIR"
+fi
+
 # 6. Setup SDDM
 if ask_confirmation "Setup SDDM with Silent theme?"; then
     log "Enabling SDDM service..."
@@ -183,7 +196,7 @@ if ask_confirmation "Link dotfiles?"; then
     }
 
     # Link .config directories
-    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look waypaper pypr; do
+    for config in fish kitty hypr nvim waybar swaync wofi tofi wlogout btop cava wal mpd ncmpcpp clock-rs nwg-look waypaper pypr eww fastfetch paru; do
         link_item ".config/$config"
     done
     link_item ".config/starship.toml"

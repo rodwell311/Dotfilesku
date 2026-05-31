@@ -8,6 +8,7 @@ result-spacing = 25
 num-results = 5
 
 font = JetBrainsMono Nerd Font
+# font = SF Pro Display
 font-size = 24
 
 text-color = #4e4e5f

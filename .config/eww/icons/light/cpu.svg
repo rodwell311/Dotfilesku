@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 24 24"
+   fill="none"
+   stroke="#e0def4"
+   stroke-width="2"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="cpu.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="9.0416667"
+     inkscape:cx="9.4562212"
+     inkscape:cy="26.820276"
+     inkscape:window-width="1894"
+     inkscape:window-height="1021"
+     inkscape:window-x="10"
+     inkscape:window-y="43"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9" />
+  <rect
+     x="4"
+     y="4"
+     width="16"
+     height="16"
+     rx="2"
+     id="rect1"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M9 9h6v6H9z"
+     id="path1"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M15 2v2"
+     id="path2"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M9 2v2"
+     id="path3"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M20 15h2"
+     id="path4"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M20 9h2"
+     id="path5"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M15 20v2"
+     id="path6"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M9 20v2"
+     id="path7"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M2 15h2"
+     id="path8"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M2 9h2"
+     id="path9"
+     style="stroke:#191724;stroke-opacity:1" />
+  <rect
+     x="4"
+     y="4"
+     width="16"
+     height="16"
+     rx="2"
+     id="rect9"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M9 9h6v6H9z"
+     id="path10"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M15 2v2"
+     id="path11"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M9 2v2"
+     id="path12"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M20 15h2"
+     id="path13"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M20 9h2"
+     id="path14"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M15 20v2"
+     id="path15"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M9 20v2"
+     id="path16"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M2 15h2"
+     id="path17"
+     style="stroke:#191724;stroke-opacity:1" />
+  <path
+     d="M2 9h2"
+     id="path18"
+     style="stroke:#191724;stroke-opacity:1" />
+</svg>

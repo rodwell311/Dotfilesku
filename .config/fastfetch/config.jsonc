@@ -1,0 +1,30 @@
+{
+    "logo": {
+        "type": "kitty",
+        "source": "/home/rodwell/.config/fastfetch/logo.jpg",
+        "width": 27,
+        "height": 12,
+        "padding": {
+            "right": 2
+        }
+    },
+    "display": {
+        "separator": "  "
+    },
+    "modules": [
+        "os",
+        "kernel",
+        "packages",
+        "shell",
+        "memory",
+        "init",
+        "de",
+        "uptime",
+        "cpu",
+        {
+            "type": "disk",
+            "folders": "/:/mnt/Game"
+        },
+        "colors"
+    ]
+}
